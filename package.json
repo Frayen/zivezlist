@@ -1,0 +1,30 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.31.0",
+        "core-js": "^3.0.0",
+        "node-sass": "^4.14.1",
+        "regenerator-runtime": "^0.13.2",
+        "sass-loader": "^9.0.1",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@babel/preset-react": "^7.10.4",
+        "bootstrap": "^4.5.2",
+        "jquery": "^3.5.1",
+        "nouislider": "^14.6.2",
+        "popper.js": "^1.16.1",
+        "prop-types": "^15.7.2",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-onclickoutside": "^6.9.0",
+        "webpack-jquery-ui": "^2.0.1"
+    }
+}
