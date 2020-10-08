@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyAnimeList{% endblock %}
+
+{% block body %}
+    <h1>MyAnimeList</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ my_anime_list.id }}</td>
+            </tr>
+            <tr>
+                <th>Mal_id</th>
+                <td>{{ my_anime_list.malId }}</td>
+            </tr>
+            <tr>
+                <th>Al_id</th>
+                <td>{{ my_anime_list.alId }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ my_anime_list.title }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ my_anime_list.score }}</td>
+            </tr>
+            <tr>
+                <th>Episode</th>
+                <td>{{ my_anime_list.episode }}</td>
+            </tr>
+            <tr>
+                <th>Rewatches</th>
+                <td>{{ my_anime_list.rewatches }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('my_anime_list_index') }}">back to list</a>
+
+    <a href="{{ path('my_anime_list_edit', {'id': my_anime_list.id}) }}">edit</a>
+
+    {{ include('my_anime_list/_delete_form.html.twig') }}
+{% endblock %}

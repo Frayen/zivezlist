@@ -1,1 +1,72 @@
 @import "~bootstrap/scss/bootstrap";
+$cover-height: 265px;
+$cover-with: 185px;
+$px-1: 5px;
+$px-2: 10px;
+$px-3: 15px;
+$px-4: 20px;
+$px-5: 25px;
+$p-t-filter-input: 15px;
+$unselect: -webkit-touch-callout
+-webkit-user-select
+-khtml-user-select
+-moz-user-select
+-ms-user-select
+user-select;
+
+// As hex codes */
+//https://paletton.com/#uid=73k200kw0w0jyC+oRxVy4oIDfjr
+$color-primary-0: #16CBDB;	// Main Primary color */
+$color-primary-1: #497B80;
+$color-primary-2: #36929B;
+$color-primary-3: #6FD1DB;
+$color-primary-4: #DFF1F3;
+
+$color-secondary-1-0: #EB159B;	// Main Secondary color (1) */
+$color-secondary-1-1: #A45D8A;
+$color-secondary-1-2: #C64396;
+$color-secondary-1-3: #EB75BF;
+$color-secondary-1-4: #F8E4F1;
+
+$color-secondary-2-0: #B5FA16;	// Main Secondary color (2) */
+$color-secondary-2-1: #ACC670;
+$color-secondary-2-2: #C0EF51;
+$color-secondary-2-3: #D4F97D;
+$color-secondary-2-4: #F7FDE9;
+
+$color-complement-0: #FF8417;	// Main Complement color */
+$color-complement-1: #D2A277;
+$color-complement-2: #FEA656;
+$color-complement-3: #FFBC7F;
+$color-complement-4: #FFF4EA;
+
+$color-bg-0: #353939;	// Main Primary color */
+$color-bg-1: #404C4E;
+$color-bg-2: #2C3031;
+$color-bg-3: #232828;
+$color-bg-4: #191D1D;
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+}
+
+html{
+  font-size: 62.5%;
+}
+body {
+  background-color: $color-bg-2;
+  font-size: 1.6rem;
+}
+p.title{
+  padding: 10px 10px 0;
+  size:1.4rem;
+}
+
+@import "./modules/browsingFilter/searchSelect";
+//@import "./modules/animeCard/_animeCard";
+//@import "modules/_browsingFilter";

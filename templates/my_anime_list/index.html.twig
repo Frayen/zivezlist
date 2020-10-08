@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyAnimeList index{% endblock %}
+
+{% block body %}
+    <h1>MyAnimeList index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mal_id</th>
+                <th>Al_id</th>
+                <th>Title</th>
+                <th>Score</th>
+                <th>Episode</th>
+                <th>Rewatches</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for my_anime_list in my_anime_lists %}
+            <tr>
+                <td>{{ my_anime_list.id }}</td>
+                <td>{{ my_anime_list.malId }}</td>
+                <td>{{ my_anime_list.alId }}</td>
+                <td>{{ my_anime_list.title }}</td>
+                <td>{{ my_anime_list.score }}</td>
+                <td>{{ my_anime_list.episode }}</td>
+                <td>{{ my_anime_list.rewatches }}</td>
+                <td>
+                    <a href="{{ path('my_anime_list_show', {'id': my_anime_list.id}) }}">show</a>
+                    <a href="{{ path('my_anime_list_edit', {'id': my_anime_list.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('my_anime_list_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+<div class="category">
+    <span>{{ dropdown_label }}</span>
+</div>
+{% for dropdown in dropdowns %}
+<div class="dropdown">
+    {{ form_widget(dropdown.entity) }}
+    <div class="switch">
+        <span class="ti-angle-down"></span>
+    </div>
+    <div class="reset">
+        <span class="ti-close"></span>
+    </div>
+    <div class="list">
+        <div class="triangle-up"></div>
+        <ul class="options" data-input-name="{{ dropdown.data }}">
+            {% for option in dropdown.options %}
+            <li class="option"  data-input-option="{{ option.data }}">
+                <span>{{ option.label }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}

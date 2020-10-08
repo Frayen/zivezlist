@@ -1,0 +1,252 @@
+{% set current_path = app.request.get('_route') %}
+{{ form_start(form, {'attr': {'id': 'task_form'}}) }}
+<div class="container-fluid">
+    {#  Search  #}
+    <div class="row">
+        <div class="col-12">
+            {{ form_row(form.search) }}
+            <div id="search_reset"><span class="ti-close"></span></div>
+        </div>
+    </div>
+
+    {#  Type  #}
+    <div class="row">
+        <div class="col-12">
+            <div class="category">
+                <span>Type</span>
+            </div>
+        </div>
+        <div class="col-12">
+            <a href="{{ path('SearchAnime',get) }}"><button type="button" ><span>Anime</span></button></a>
+        </div>
+        <div class="col-12">
+            <a href="{{ path('SearchAnime',get) }}"><button type="button" ><span>Anime</span></button></a>
+        </div>
+        <div class="col-12">
+            <a href="{{ path('SearchAnime',get) }}"><button type="button" ><span>Anime</span></button></a>
+        </div>
+        <div class="col-12">
+            <a href="{{ path('SearchAnime',get) }}"><button type="button" ><span>Anime</span></button></a>
+        </div>
+    </div>
+
+    {#  Season  #}
+    <div class="row">
+        <div class="col-12">
+            {% include 'yoloTest/_form_dropdown.html.twig' with {
+                'dropdown_label': 'Season',
+                'dropdowns': [
+                    {
+                        'label': 'Season',
+                        'data': 'season',
+                        'entity': form.season,
+                        'options': [
+                            {'label': 'All', 'data': 'RESET'},
+                            {'label': 'Winter', 'data': 'WINTER'},
+                            {'label': 'Spring', 'data': 'SPRING'},
+                            {'label': 'Summer', 'data': 'SUMMER'},
+                            {'label': 'Fall', 'data': 'FALL'},
+                        ]
+                    }
+                ]
+            } %}
+        </div>
+    </div>
+
+    {# Year #}
+    <div class="row">
+        <div class="col-12 rangeslider">
+            <div class="year-container">
+                <div class="category">
+                    <span>Year</span>
+                    <span class="switch ti-arrows-horizontal"></span>
+                </div>
+                <div class="indicator float-right">
+                    <div id="year" class="d-inline-block">
+                        <span></span>
+                    </div>
+                    <div class="reset" class="d-inline-block">
+                        <span class="ti-close"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="slider-input"></div>
+        </div>
+    </div>
+
+    {#  Filter  #}
+    <div class="row">
+        <div class="col-12">
+            {% include 'yoloTest/_form_dropdown.html.twig' with {
+                'dropdown_label': 'Filters',
+                'dropdowns': [
+                    {
+                        'label': 'Sort',
+                        'data': 'sort',
+                        'entity': form.sort,
+                        'options': [
+                            {'label': 'Title', 'data': 'TITLE_ROMAJI'},
+                            {'label': 'Popularity', 'data': 'POPULARITY'},
+                            {'label': 'Score', 'data': 'SCORE'},
+                            {'label': 'Trending', 'data': 'TRENDING'},
+                            {'label': 'Favourites', 'data': 'FAVOURITES'},
+                            {'label': 'Date added', 'data': 'ID_DESC'},
+                            {'label': 'Release date', 'data': 'START_DATE_DESC'},
+                        ]
+                    }, {
+                        'label': 'Format',
+                        'data': 'format',
+                        'entity': form.format,
+                        'options': [
+                            {'label': 'Title', 'data': 'TITLE_ROMAJI'},
+                            {'label': 'Popularity', 'data': 'POPULARITY'},
+                            {'label': 'Score', 'data': 'SCORE'},
+                            {'label': 'Trending', 'data': 'TRENDING'},
+                            {'label': 'Favourites', 'data': 'FAVOURITES'},
+                            {'label': 'Date added', 'data': 'ID_DESC'},
+                            {'label': 'Release date', 'data': 'START_DATE_DESC'},
+                        ]
+                    }, {
+                        'label': 'Status',
+                        'data': 'status',
+                        'entity': form.status,
+                        'options': [
+                            {'label': 'Title', 'data': 'TITLE_ROMAJI'},
+                            {'label': 'Popularity', 'data': 'POPULARITY'},
+                            {'label': 'Score', 'data': 'SCORE'},
+                            {'label': 'Trending', 'data': 'TRENDING'},
+                            {'label': 'Favourites', 'data': 'FAVOURITES'},
+                            {'label': 'Date added', 'data': 'ID_DESC'},
+                            {'label': 'Release date', 'data': 'START_DATE_DESC'},
+                        ]
+                    }, {
+                        'label': 'Country',
+                        'data': 'country',
+                        'entity': form.country,
+                        'options': [
+                            {'label': 'Title', 'data': 'TITLE_ROMAJI'},
+                            {'label': 'Popularity', 'data': 'POPULARITY'},
+                            {'label': 'Score', 'data': 'SCORE'},
+                            {'label': 'Trending', 'data': 'TRENDING'},
+                            {'label': 'Favourites', 'data': 'FAVOURITES'},
+                            {'label': 'Date added', 'data': 'ID_DESC'},
+                            {'label': 'Release date', 'data': 'START_DATE_DESC'},
+                        ]
+                    },
+                    {
+                        'label': 'Source',
+                        'data': 'source',
+                        'entity': form.source,
+                        'options': [
+                            {'label': 'Title', 'data': 'TITLE_ROMAJI'},
+                            {'label': 'Popularity', 'data': 'POPULARITY'},
+                            {'label': 'Score', 'data': 'SCORE'},
+                            {'label': 'Trending', 'data': 'TRENDING'},
+                            {'label': 'Favourites', 'data': 'FAVOURITES'},
+                            {'label': 'Date added', 'data': 'ID_DESC'},
+                            {'label': 'Release date', 'data': 'START_DATE_DESC'},
+                    ]
+                    },
+                ]
+            } %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="bg-transparent p-0 w-auto" data-toggle="modal" data-target="#advanced-modal">
+                <span>Advanced</span>
+            </button>
+        </div>
+    </div>
+
+    {#  Hide from List  #}
+    <div class="row">
+        <div class="col-12">
+            <ul class="checkbox">
+                <li>{{ form_widget(form.hide_list) }}</li>
+                <li>{{ form_label(form.hide_list) }}</li>
+            </ul>
+        </div>
+    </div>
+    {#  Hide adult  #}
+    <div class="row">
+        <div class="col-12">
+            <ul class="checkbox">
+                <li>{{ form_widget(form.adult) }}</li>
+                <li>{{ form_label(form.adult) }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="submit" class="btn-primary" id="apply-filter">Apply filter</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="advanced-modal" tabindex="-100" role="dialog" aria-labelledby="advanced-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="ti-close"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="advanced">
+                    <div class="label">Genres</div>
+                    <ul class="list">
+                        {% for key, genre_in in form.genre_in %}
+                            <li class="option">
+                                <label>{{ genres[key] }}</label>
+                                <div class="actions">
+                                    {{ form_widget(genre_in) }}
+                                    {{ form_widget(form.genre_out[key]) }}
+                                    <div class="reset">
+                                        <span class="ti-close"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% for name, tag_in_item in form.tag_in.vars.choices %}
+                        {% if tag_in_item is iterable  %}
+                        <div class="advanced">
+                            <div class="label">{{ name }}</div>
+                            <ul class="list">
+                            {% for key,choice in tag_in_item %}
+                                {{ form_widget(form.tag_in[key]) }}
+                                {{ form_label(form.tag_in[key]) }}
+                            {% endfor %}
+                        {% else %}
+{#                                {% for tag_in in tag_in_item %}#}
+                                <li class="option">
+
+                                    <label>{{ form_label(tag_in_item) }}</label>
+                                    <div class="actions">
+
+                                            {{ form_widget(tag_in_item) }}
+
+
+                                        <div class="reset">
+                                            <span class="ti-close"></span>
+                                        </div>
+                                    </div>
+                                </li>
+{#                                {% endfor %}#}
+                        {% endif %}
+                            </ul>
+                        </div>
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

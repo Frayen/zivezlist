@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-md-12 col-lg-4 col-xl-4 filter">
+                {% include "sidebar/sidebar.html.twig" %}
+            </div>
+            <main class="col-md-12 col-lg-8 col-xl-8 anime-card-container">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        {% if data is defined %}
+                            {% for anime in data %}
+                                <div class="col-12 col-md-6 col-xl-4 mr-auto mr-xl-2 ml-auto ml-xl-2 mb-3 mt-3 anime-card d-flex">
+                                    <a href="" class="cover align-text-bottom" style="background-image: url('{{ asset(anime.coverImage.large) }}')">
+                                        <div class="title position-absolute">
+                                            <a href=""><span>{{ anime.title.romaji }}</span></a>
+                                        </div>
+                                    </a>
+                                    <div class="info d-flex align-items-start flex-column">
+                                        <div class="description align-self-stretch">
+                                            <span>
+                                                {{ anime.description|raw }}
+                                            </span>
+                                        </div>
+                                        <div class="actions align-self-end">
+                                            <ul class="list-group list-group-horizontal flex-fill">
+                                                <li class="list-group-item list-group-item-action text-center">
+                                                    <span class="ti-more-alt"></span>
+                                                </li>
+                                                <li class="list-group-item list-group-item-action text-center">
+                                                    <span class="ti-more-alt"></span>
+                                                </li>
+                                                <li class="list-group-item list-group-item-action text-center">
+                                                    <span class="ti-more-alt"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </main>
+        </div>
+</div>
+{% endblock %}

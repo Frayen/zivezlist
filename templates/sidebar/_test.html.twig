@@ -1,0 +1,11 @@
+{% for key, item in tag_item %}
+    {% if tag_item is iterable %}
+        {% for key2, tag in item %}
+                {{ key }}
+                {% include "sidebar/_test.html.twig" with {"tag_item": tag} %}
+        {% endfor %}
+    {% else %}
+        {{ form_label(tag_item) }}
+        {{ form_widget(tag_item) }}
+    {% endif %}
+{% endfor %}

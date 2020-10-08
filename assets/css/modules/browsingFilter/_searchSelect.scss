@@ -1,0 +1,44 @@
+@import '../themify/themify';
+input{
+    background-color: $color-bg-3;
+    color: $color-primary-4;
+    border: 0;
+    padding-left: 10px;
+  }
+input::placeholder {
+    color: $color-primary-4;
+}
+.reset_icon {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #666;
+    margin-left: 10%;
+}
+.reset {
+    position: absolute;
+    top: 0;
+    right: 32px;
+    width: 32px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    text-align: center;
+}
+.sort__input {
+    width: 100%;
+}
+.sort__select {
+    background-color: red;
+}
+.sort__option {
+    background-color: blue;
+    border: 0;
+    width: 100%;
+}
+.options {
+    list-style-type: none;
+}
+.dd-list-item button{
+    background-color: $color-primary-1;
+}
