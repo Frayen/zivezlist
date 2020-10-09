@@ -12,6 +12,6 @@ class Dropdown extends AbstractController
      * @Route("/")
      */
     public function index(){
-        return $this->render('browseAnime/index.html.twig');
+        return $this->render('browseFilter/_dropdown.html.twig');
     }
 }

@@ -11,7 +11,7 @@ require('../css/modules/themify/_themify.scss');
 import '../css/app.scss';
 import ReactDOM from "react-dom";
 import React from "react";
-import DropdownFilter from './components/_DropdownFilter';
+import Dropdown from './components/_dropdown';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
@@ -28,16 +28,16 @@ const searchBoxes = [
     {id: 7, name: 'Release date', value: 'START_DATE_DESC'},
 ];
 
-function Filter() {
-
-    return(
-        <div className="container">
-            <DropdownFilter title="sort" options={searchBoxes} customOn={function hi(){console.log("asfd")}} />
-        </div>
-    );
-}
-
-export default Filter;
+// function Filter() {
+//
+//     return(
+//         <div className="container">
+//             <DropdownFilter title="sort" options={searchBoxes} customOn={function hi(){console.log("asfd")}} />
+//         </div>
+//     );
+// }
+//
+// export default Filter;
 if (document.getElementById("filter")) {
-    ReactDOM.render(<Filter/>, document.getElementById("filter"));
+    ReactDOM.render(<Dropdown title="sort" options={searchBoxes} customOn={function hi(){console.log("asfd")}}/>, document.getElementById("dropdown"));
 }
