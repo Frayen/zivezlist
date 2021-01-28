@@ -12,6 +12,7 @@ class Dropdown extends React.Component {
             selection: [],
             open: false,
         }
+        this.onChange = props.onChange ? props.onChange.bind(this.defaultOnChange) : this.defaultOnChange.bind(this);
     }
 
     handleClickOutside() {this.setState({open: false})}
@@ -24,8 +25,8 @@ class Dropdown extends React.Component {
         }
     }
 
-    onChange() {
-        console.log("1");
+    defaultOnChange() {
+        console.log("On Change is empty!");
     }
 
     arrayIsSame(a, b) {
@@ -50,7 +51,7 @@ class Dropdown extends React.Component {
             );
             this.setState({selection:[...selectionAfterRemoval]})
         }
-        this.toggle(this.state.open)
+        this.toggle(!this.state.open)
     }
 
     clearSelect() {
@@ -59,12 +60,12 @@ class Dropdown extends React.Component {
 
     clearDeleteToggle () {
         if (this.state.selection.length !== 0) {
-            return (<span className="ti-close" onClick={() => this.clearSelect()}></span>);
+            return (<span className="dd-header__input_indicatior ti-close" onClick={() => this.clearSelect()}/>);
         } else {
             if (!open) {
-                return (<span className="ti-angle-down"></span>);
+                return (<span className="dd-header__input_indicatior ti-angle-down"/>);
             } else {
-                return (<span className="ti-angle-up"></span>);
+                return (<span className="dd-header__input_indicatior ti-angle-up"/>);
             }
         }
     }
@@ -87,27 +88,25 @@ class Dropdown extends React.Component {
             <div className="dd-wrapper">
                 <div tabIndex={0}
                      className="dd-header"
-                     role="button"
                      onKeyPress={() => this.toggle(!this.state.open)}
-                     onClick={() => {this.toggle(!this.state.open)}}
-                >
-                    <div className="dd-header__title">
-                        <span className="dd-header__title--bold">{this.renderValue()}</span>
+                     onClick={() => {this.toggle(!this.state.open)}} >
+                    <div className="dd-header__input">
+                        <span className="dd-header__value">{this.renderValue()}</span>
                         {this.clearDeleteToggle(open)}
                     </div>
 
                 </div>
                 {this.state.open && (
-                    <ul className="dd-list">
-                        {this.state.options.map(option => (
-                            <li className="dd-list-item" key={option.id}>
-                                <button type="button" onClick={() => this.handleOnclick(option)}>
-                                    <span>{option.name}</span>
-                                    {this.isItemInSelection(option) && (<span className="ti-check"></span>)}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="dd-content">
+                        <ul className="dd-list">
+                            {this.state.options.map(option => (
+                                <li className="dd-list-item" key={option.id} onClick={() => this.handleOnclick(option)}>
+                                        <span>{option.name}</span>
+                                        {this.isItemInSelection(option) && (<span className="ti-check"/>)}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 )}
             </div>
         );
