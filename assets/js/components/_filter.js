@@ -15,7 +15,7 @@ class Filter extends Component{
     render() {
         return (
             <div className="container">
-                <DropdownComponent title="sort" options={sort} onChange={function hi() {
+                <DropdownComponent title="sort" options={sort} multiSelect={true} onChange={function hi() {
                     console.log("asfd")
                 }}/>
                 <DropdownComponent title="sort" options={sort}/>

@@ -74,8 +74,12 @@ class Dropdown extends React.Component {
         if (this.state.selection.length !== 0) {
             if (!this.state.multiSelect) {
                 return (this.state.selection[0].name);
-            } else if (this.multiSelect) {
-                return("");
+            } else if (this.state.multiSelect) {
+                let test = this.state.selection.length - 1;
+                if (test !== 0) {
+                    return (<span className="dd-header__value">{this.state.selection[0].name}<span>+{test}</span></span>);
+                }
+                return (<span className="dd-header__value">{this.state.selection[0].name}</span>);
             }
         } else {
             return(this.state.title);
@@ -91,10 +95,9 @@ class Dropdown extends React.Component {
                      onKeyPress={() => this.toggle(!this.state.open)}
                      onClick={() => {this.toggle(!this.state.open)}} >
                     <div className="dd-header__input">
-                        <span className="dd-header__value">{this.renderValue()}</span>
+                        {this.renderValue()}
                         {this.clearDeleteToggle(open)}
                     </div>
-
                 </div>
                 {this.state.open && (
                     <div className="dd-content">
